@@ -31,9 +31,9 @@ const NavB3 = () => {
       <p>Create role</p>
       <img src={dari} className="h-4 ml-2 mt-1.5" />
       <img src={dualcon} alt="" className="h-5" />
-      <p>Assign users</p>
+      <p className="opacity-40">Assign users</p>
       <img src={doc} alt="" className="h-5" />
-      <p>Documentation</p>
+      <p className="opacity-40">Documentation</p>
     </div>
   );
 };
