@@ -35,10 +35,7 @@ const NavB2 = () => {
           <BiSolidDownArrow className="h-3 mt-1" />
         </div>
         <div className="flex  ml-2 items-center space-x-2  text-gray-500 cursor-pointer">
-          <MdOutlineKeyboardDoubleArrowLeft
-            className="opacity-100"
-            onClick={toggleArrowOpen}
-          />
+          <MdOutlineKeyboardDoubleArrowLeft onClick={toggleArrowOpen} />
         </div>
         {arrowOpen ? (
           <MdKeyboardDoubleArrowRight
