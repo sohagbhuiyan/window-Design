@@ -33,11 +33,14 @@ const Nav = () => {
             <u>H</u>elp{" "}
           </p>
         </div>
-        <div className="flex justify-end bg-b px-2 mb-1 mr-3 py-2 space-x-4 cursor-pointer rounded-br-3xl ">
-          <MdMinimize className="hover:text-blue-300 text-white  " />
 
-          <RiCheckboxMultipleBlankLine className=" hover:text-blue-300 text-white" />
-          <RxCross2 className="hover:bg-red-600  text-white rounded-br-lg " />
+        <div className="bg-[url(./assets/bg1.png)] h-9 px-5 bg-no-repeat">
+          <div className="flex justify-end px-2.5 py-1 space-x-1.5 cursor-pointer ">
+            <MdMinimize className="hover:text-blue-900 text-white " />
+
+            <RiCheckboxMultipleBlankLine className=" hover:text-blue-300 text-white" />
+            <RxCross2 className="hover:bg-red-600  text-white " />
+          </div>
         </div>
       </div>
       <div className="border-solid bg-gold h-1  "></div>

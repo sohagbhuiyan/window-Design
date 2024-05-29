@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { FaFolder, FaFolderOpen, FaStar } from "react-icons/fa";
 import { IoMdArrowDropdown, IoMdArrowDropright } from "react-icons/io";
 import { BsFillCircleFill } from "react-icons/bs";
+import { GoDotFill } from "react-icons/go";
+
 import rpic from "../../assets/pic.png";
 import UseToggle from "./UseToggle";
 const sapmenu = [
@@ -25,14 +27,28 @@ const Favourites = () => {
   const [isFavoritesOpen, toggleFavorites] = UseToggle();
   const [isSapMenuOpen, toggleSapMenuOpen] = UseToggle();
 
+  const [isDot, toggleDot] = UseToggle();
+  const [isDot2, toggleDot2] = UseToggle();
+
+  const handleFavoritesClick = () => {
+    toggleFavorites();
+    toggleDot((prev) => !prev);
+  };
+  const handleSapClick = () => {
+    toggleSapMenuOpen();
+    toggleDot2((prev1) => !prev1);
+  };
+
   return (
     <div className="flex justify-between">
       <div className=" ml-6 w-3/4 ">
-        <div className="flex items-center border-2  bg-bg1  px-9 ">
-          <IoMdArrowDropdown
-            className="cursor-pointer"
-            onClick={toggleFavorites}
-          />
+        <div
+          className="flex items-center border-2  cursor-pointer
+             bg-bg1 px-9"
+          onClick={handleFavoritesClick}
+        >
+          {isDot ? <IoMdArrowDropdown /> : <GoDotFill className="h-2.5" />}
+
           {isFavoritesOpen ? (
             <FaFolderOpen className="text-yellow-500 mr-2" />
           ) : (
@@ -44,22 +60,28 @@ const Favourites = () => {
         </div>
 
         {isFavoritesOpen && (
-          <ul className="px-6 border-2">
+          <ul className="px-6 border-2 border-t-0 ">
             {favorites.map((fav) => (
+
               <li key={fav.id} className="flex  items-center mb-1">
                 <BsFillCircleFill className="  ml-9 h-1" />
                 <FaStar className="text-yellow-500  h-5" />
-                <span className="px-2 h-5 text-sky-600 font-medium">{fav.text}</span>
+                <span className="px-2 h-5 text-sky-600 font-medium">
+                  {fav.text}
+                </span>
               </li>
+
             ))}
           </ul>
         )}
-        <div className=" border-2">
-          <div className="flex items-center border-2  bg-bg1  px-9">
-            <IoMdArrowDropdown
-              className="cursor-pointer "
-              onClick={toggleSapMenuOpen}
-            />
+        
+          <div
+            className="flex items-center border-2 border-t-0  cursor-pointer
+             bg-bg1 px-9"
+            onClick={handleSapClick}
+          >
+            {isDot2 ? <IoMdArrowDropdown /> : <GoDotFill className="h-2.5" />}
+
             {isSapMenuOpen ? (
               <FaFolderOpen className="text-yellow-500  mr-2" />
             ) : (
@@ -67,8 +89,9 @@ const Favourites = () => {
             )}
             <span className="font-medium cursor-pointer">SAP Menu</span>
           </div>
+
           {isSapMenuOpen && (
-            <ul className="border-2 ">
+            <ul className="border-2 border-t-0 ">
               {sapmenu.map((sap) => (
                 <li className="flex ml-14 items-center px-2 cursor-pointer">
                   <IoMdArrowDropright />{" "}
@@ -78,7 +101,7 @@ const Favourites = () => {
               ))}
             </ul>
           )}
-        </div>
+        
       </div>
       <img src={rpic} alt="" className=" w-full" />
     </div>
